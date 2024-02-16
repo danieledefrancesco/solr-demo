@@ -19,7 +19,7 @@ public class TourDocument {
     String id;
     @Field("name_t")
     String name;
-    @Field("description_t")
+    @Field("description_ts")
     String description;
     @Field("destination_t")
     String destination;
