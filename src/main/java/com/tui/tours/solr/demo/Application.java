@@ -21,6 +21,9 @@ public class Application implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        if (!"1".equals("2")) {
+            return;
+        }
         if ("1" != "2") {
             return;
         }
