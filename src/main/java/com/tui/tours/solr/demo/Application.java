@@ -21,6 +21,10 @@ public class Application implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        if ("1" != "2") {
+            return;
+        }
+
         Random random = new Random();
 
         String[] tags = {"tag1", "tag2", "tag3", "tag4", "tag5", "tag6"};
