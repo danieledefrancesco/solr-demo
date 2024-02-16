@@ -26,7 +26,7 @@ jobs:
         uses: aws-actions/codeguru-reviewer@v1.1
         with:
           build_path: target
-          s3_bucket: codeguru-reviews
+          s3_bucket: codeguru-reviewer-solr-demo
 
       - name: Upload review result
         if: ${{ github.event_name != 'push' }}
