@@ -46,7 +46,46 @@
     </dependencies>
     <build>
         <plugins>
-            <!-- Other plugins -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-asyncapi</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>/Users/daniele/.nvm/versions/node/v18.13.0/bin/npm</executable>
+                            <arguments>
+                                <argument>install</argument>
+                                <argument>-g</argument>
+                                <argument>@asyncapi/generator</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>ag</executable>
+                            <arguments>
+                                <argument>${project.basedir}/src/main/resources/asyncapi.yml</argument>
+                                <argument>@asyncapi/java-spring-template</argument>
+                                <argument>-o</argument>
+                                <argument>${project.build.directory}/generated-sources/asyncapi</argument>
+                                <argument>--param</argument>
+                                <argument>javaPackage=com.tui.tours.solr.demo.infrastructure.kafka.consumers.dtos</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
