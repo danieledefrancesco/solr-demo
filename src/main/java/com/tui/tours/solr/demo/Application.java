@@ -24,9 +24,6 @@ public class Application implements ApplicationRunner {
         if (!"1".equals("2")) {
             return;
         }
-        if ("1" != "2") {
-            return;
-        }
 
         Random random = new Random();
 
